@@ -1,0 +1,32 @@
+:root {
+  --cream: #F7F4EE;
+  --stone: #E7E3DC;
+  --green: #173D35;
+  --charcoal: #222222;
+  --sage: #A8B2A3;
+  --white: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--charcoal);
+}
+
+button,
+a {
+  font-family: inherit;
+}

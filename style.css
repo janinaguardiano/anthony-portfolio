@@ -63,7 +63,11 @@ body {
   width: 260px;
   height: 260px;
 
-  margin: 0 auto 20px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin-bottom: 10px;
 
   background: transparent;
 
@@ -90,7 +94,7 @@ body {
   font-size: 28px;
   font-weight: 500;
 
-  margin-top: -45px;
+  margin-top: 15px;
   margin-bottom: 8px;
 }
 

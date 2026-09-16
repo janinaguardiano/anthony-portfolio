@@ -398,11 +398,20 @@ body {
   display: flex;
   align-items: center;
 
+  width: max-content;
+
+  animation: tools-scroll 40s linear infinite;
+}
+
+.tools-group {
+  display: flex;
+  align-items: center;
+
   gap: 45px;
 
-  width: max-content;
-  
-  animation: tools-scroll 40s linear infinite;
+  padding-right: 45px;
+
+  flex-shrink: 0;
 }
 
 .tools-track img {
@@ -421,7 +430,7 @@ body {
   }
 
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 /* MOBILE */

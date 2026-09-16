@@ -589,6 +589,70 @@ body {
 .tools-bar {
   margin-top: 38px;
 }
+/* HOME DASHBOARD */
+
+.home-dashboard {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 118px);
+  gap: 12px;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 18px;
+
+  color: var(--charcoal);
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+
+.dashboard-card-large,
+.dashboard-card-wide {
+  grid-column: span 2;
+}
+
+.dashboard-card:hover {
+  background: var(--white);
+  border-color: #c8c1b7;
+  transform: translateY(-2px);
+}
+
+.card-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--forest);
+}
+
+.dashboard-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.dashboard-card p {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #6d675f;
+  max-width: 440px;
+}
+
+.card-link {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--forest);
+}
 /* MOBILE */
 
 @media (max-width: 950px) {

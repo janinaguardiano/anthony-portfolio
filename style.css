@@ -401,6 +401,8 @@ body {
   gap: 45px;
 
   width: max-content;
+  
+  animation: tools-scroll 40s linear infinite;
 }
 
 .tools-track img {
@@ -412,6 +414,15 @@ body {
   object-fit: contain;
 
   flex-shrink: 0;
+}
+@keyframes tools-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 /* MOBILE */
 

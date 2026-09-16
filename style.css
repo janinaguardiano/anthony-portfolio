@@ -526,6 +526,15 @@ body {
   line-height: 1.65;
   color: #5d5852;
 }
+/* DASHBOARD PAGE VIEWS */
+
+.page-view {
+  display: none;
+}
+
+.page-view.active {
+  display: block;
+}
 /* MOBILE */
 
 @media (max-width: 950px) {

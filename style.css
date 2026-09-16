@@ -653,6 +653,41 @@ body {
   font-weight: 700;
   color: var(--forest);
 }
+/* HOME SIZE REFINEMENTS */
+
+/* Thinner Daily Drivers strip */
+.tools-bar {
+  min-height: 72px;
+  margin-top: 28px;
+}
+
+.tools-label {
+  flex: 0 0 170px;
+  padding: 12px 20px;
+}
+
+.tools-window {
+  padding: 0 22px;
+}
+
+.tools-track img {
+  height: 36px;
+  max-width: 150px;
+}
+
+/* Slightly larger dashboard cards */
+.home-dashboard {
+  margin-top: 14px;
+  grid-template-rows: repeat(2, 132px);
+}
+
+.dashboard-card {
+  padding: 18px 20px;
+}
+
+.dashboard-card h3 {
+  font-size: 23px;
+}
 /* MOBILE */
 
 @media (max-width: 950px) {

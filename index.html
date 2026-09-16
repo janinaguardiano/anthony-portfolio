@@ -373,9 +373,10 @@
   </div>
 <script>
   const navLinks = document.querySelectorAll('.sidebar-nav a');
+  const viewLinks = document.querySelectorAll('.sidebar-nav a, .dashboard-card');
   const pageViews = document.querySelectorAll('.page-view');
 
-  navLinks.forEach(link => {
+  viewLinks.forEach(link => {
     link.addEventListener('click', function(event) {
       const targetId = this.getAttribute('href');
 
@@ -396,7 +397,14 @@
       });
 
       targetPage.classList.add('active');
-      this.classList.add('active');
+
+      const matchingNav = document.querySelector(
+        `.sidebar-nav a[href="${targetId}"]`
+      );
+
+      if (matchingNav) {
+        matchingNav.classList.add('active');
+      }
 
       window.location.hash = targetId;
     });

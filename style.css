@@ -678,7 +678,7 @@ body {
 /* Slightly larger dashboard cards */
 .home-dashboard {
   margin-top: 14px;
-  grid-template-rows: repeat(2, 132px);
+  grid-template-rows: repeat(2, 148px);
 }
 
 .dashboard-card {

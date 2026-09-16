@@ -404,10 +404,10 @@ body {
 }
 
 .tools-track img {
-  height: 34px;
+  height: 42px;
   width: auto;
 
-  max-width: 145px;
+  max-width: 165px;
 
   object-fit: contain;
 

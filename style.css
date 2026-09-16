@@ -535,6 +535,37 @@ body {
 .page-view.active {
   display: block;
 }
+/* COMPACT SIDEBAR */
+
+.sidebar {
+  padding: 22px 25px;
+}
+
+.profile-placeholder {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 4px;
+}
+
+.profile-name {
+  font-size: 26px;
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+
+.profile-title {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.social-links {
+  margin-bottom: 22px;
+}
+
+.sidebar-nav {
+  margin-top: 4px;
+}
 /* MOBILE */
 
 @media (max-width: 950px) {

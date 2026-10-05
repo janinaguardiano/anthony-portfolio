@@ -807,7 +807,7 @@ body {
 
 .service-number {
   display: block;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--forest);
@@ -823,8 +823,8 @@ body {
 }
 
 .service-card p {
-  font-size: 11px;
-  line-height: 1.45;
+  font-size: 12px;
+  line-height: 1.5;
   color: #625d56;
 }
 
@@ -858,8 +858,8 @@ body {
 }
 
 .services-flexibility p {
-  font-size: 11px;
-  line-height: 1.45;
+  font-size: 12px;
+  line-height: 1.5;
   color: #d9e3de;
 }
 /* MOBILE */

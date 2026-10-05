@@ -688,6 +688,74 @@ body {
 .dashboard-card h3 {
   font-size: 23px;
 }
+/* COMPACT EXPERIENCE SCREEN */
+
+.experience-section {
+  height: calc(100vh - 44px);
+  padding: 28px 44px;
+  overflow: hidden;
+}
+
+.experience-section .section-heading {
+  max-width: 850px;
+  margin-bottom: 20px;
+}
+
+.experience-section .section-eyebrow {
+  margin-bottom: 6px;
+}
+
+.experience-section .section-heading h2 {
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+.experience-section .section-heading > p:last-child {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.experience-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.experience-card {
+  display: block;
+  padding: 13px 16px;
+  border-radius: 14px;
+}
+
+.experience-date {
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  padding-top: 0;
+  margin-bottom: 5px;
+}
+
+.experience-content h3 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.experience-content h3 span {
+  font-size: 12px;
+}
+
+.experience-content h4 {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.experience-content p {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.experience-card:last-child {
+  grid-column: span 2;
+}
 /* MOBILE */
 
 @media (max-width: 950px) {

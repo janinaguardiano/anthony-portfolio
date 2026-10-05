@@ -754,7 +754,7 @@ body {
 }
 
 .experience-card:last-child {
-  grid-column: span 2;
+  grid-column: auto;
 }
 /* MOBILE */
 

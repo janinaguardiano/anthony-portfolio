@@ -870,12 +870,24 @@ body {
   padding: 48px 42px;
 }
 
+.about-title {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: nowrap;
+}
+
+.about-title h2 {
+  margin: 0;
+  font-size: 46px;
+  white-space: nowrap;
+}
+
 .about-tony {
-  font-size: 0.70em;
-  font-weight: 400 !important;
+  font-size: 28px;
+  font-weight: 400;
   font-style: italic;
-  color: #555;
-  margin-left: 8px;
+  color: #6f6a63;
   white-space: nowrap;
 }
 
@@ -942,11 +954,6 @@ body {
   line-height: 1.55;
   color: var(--charcoal);
   opacity: 0.78;
-}
-
-.about-section .section-heading h2 {
-  font-size: 46px;
-  white-space: nowrap;
 }
 
 @media (max-width: 900px) {

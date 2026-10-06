@@ -862,6 +862,25 @@ body {
   line-height: 1.5;
   color: #d9e3de;
 }
+@media (max-width: 900px) {
+  .about-section {
+    padding: 32px 24px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-values {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+}
 /* MOBILE */
 
 @media (max-width: 950px) {

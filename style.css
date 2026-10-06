@@ -870,6 +870,12 @@ body {
   padding: 48px 42px;
 }
 
+.about-tony {
+  font-size: 0.78em;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
 .about-content {
   display: grid;
   grid-template-columns: 1.15fr 1fr;

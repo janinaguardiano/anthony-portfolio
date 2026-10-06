@@ -871,9 +871,10 @@ body {
 }
 
 .about-tony {
-  font-size: 0.78em;
+  font-size: 0.72em;
   font-weight: 400;
   margin-left: 6px;
+  white-space: nowrap;
 }
 
 .about-content {
@@ -940,9 +941,19 @@ body {
   color: var(--charcoal);
   opacity: 0.78;
 }
+
+.about-section .section-heading h2 {
+  font-size: 46px;
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .about-section {
     padding: 32px 24px;
+  }
+
+  .about-section .section-heading h2 {
+    white-space: normal;
   }
 
   .about-content {

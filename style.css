@@ -871,10 +871,11 @@ body {
 }
 
 .about-tony {
-  font-size: 0.72em;
-  font-weight: 300;
+  font-size: 0.70em;
+  font-weight: 400 !important;
   font-style: italic;
-  margin-left: 6px;
+  color: #555;
+  margin-left: 8px;
   white-space: nowrap;
 }
 

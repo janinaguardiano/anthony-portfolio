@@ -872,7 +872,8 @@ body {
 
 .about-tony {
   font-size: 0.72em;
-  font-weight: 400;
+  font-weight: 300;
+  font-style: italic;
   margin-left: 6px;
   white-space: nowrap;
 }

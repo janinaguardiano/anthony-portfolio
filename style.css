@@ -1056,8 +1056,8 @@ body {
 }
 
 .about-value-card {
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid var(--border);
+  background: var(--forest);
+  border: 1px solid var(--forest);
   border-radius: 16px;
   padding: 22px;
   min-height: 150px;
@@ -1065,8 +1065,21 @@ body {
 }
 
 .about-value-card:hover {
-  background: var(--white);
+  background: var(--forest-dark);
+  border-color: var(--forest-dark);
   transform: translateY(-2px);
+}
+
+.about-value-card span {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.about-value-card h3 {
+  color: var(--white);
+}
+
+.about-value-card p {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .about-value-card span {

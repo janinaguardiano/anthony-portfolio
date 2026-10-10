@@ -836,11 +836,42 @@
       window.location.hash = targetId;
     });
   });
-  // TECH STACK CAROUSEL
-const techSlides = document.querySelectorAll('.tech-slide');
+// TECH STACK CAROUSEL + FILTERS
+const techSlides = Array.from(document.querySelectorAll('.tech-slide'));
 const techPrev = document.querySelector('.tech-prev');
 const techNext = document.querySelector('.tech-next');
+const techFilters = document.querySelectorAll('.tech-filter');
 
+const techGroups = {
+  all: techSlides,
+
+  crm: techSlides.filter(slide =>
+    ['HubSpot', 'Nutshell', 'ActiveCampaign', 'Close', 'Keap', 'SugarCRM', 'WooSender']
+      .includes(slide.querySelector('h3').textContent.trim())
+  ),
+
+  prospecting: techSlides.filter(slide =>
+    ['Clay', 'Apollo.io', 'HeyReach', 'Hunter', 'Instantly', 'LinkedIn', 'SalesQL']
+      .includes(slide.querySelector('h3').textContent.trim())
+  ),
+
+  operations: techSlides.filter(slide =>
+    ['Airtable', 'Asana', 'Google Workspace', 'Monday.com', 'Slack', 'Zillow']
+      .includes(slide.querySelector('h3').textContent.trim())
+  ),
+
+  ai: techSlides.filter(slide =>
+    ['Anthropic', 'ChatGPT', 'Gemini', 'Google AI Studio']
+      .includes(slide.querySelector('h3').textContent.trim())
+  ),
+
+  marketing: techSlides.filter(slide =>
+    ['Canva', 'Figma', 'ActiveCampaign']
+      .includes(slide.querySelector('h3').textContent.trim())
+  )
+};
+
+let visibleTechSlides = techGroups.all;
 let currentTech = 1;
 
 function showTechSlide(index) {
@@ -849,14 +880,14 @@ function showTechSlide(index) {
   });
 
   if (index < 0) {
-    currentTech = techSlides.length - 1;
-  } else if (index >= techSlides.length) {
+    currentTech = visibleTechSlides.length - 1;
+  } else if (index >= visibleTechSlides.length) {
     currentTech = 0;
   } else {
     currentTech = index;
   }
 
-  techSlides[currentTech].classList.add('active');
+  visibleTechSlides[currentTech].classList.add('active');
 }
 
 techPrev.addEventListener('click', () => {
@@ -865,6 +896,20 @@ techPrev.addEventListener('click', () => {
 
 techNext.addEventListener('click', () => {
   showTechSlide(currentTech + 1);
+});
+
+techFilters.forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+
+    techFilters.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    visibleTechSlides = techGroups[filter];
+    currentTech = 0;
+
+    showTechSlide(0);
+  });
 });
 </script>
 

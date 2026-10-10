@@ -862,6 +862,171 @@ body {
   line-height: 1.5;
   color: #d9e3de;
 }
+
+/* =========================
+   TECH STACK
+========================= */
+
+.tech-stack-section {
+  padding: 48px 42px;
+}
+
+.tech-showcase {
+  position: relative;
+  margin-top: 28px;
+  min-height: 360px;
+  background: #174c43;
+  border-radius: 24px;
+  padding: 32px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tech-carousel {
+  width: 100%;
+  max-width: 620px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-slide {
+  display: none;
+  width: 100%;
+  min-height: 270px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 38px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tech-slide.active {
+  display: flex;
+  animation: techFade 0.35s ease;
+}
+
+.tech-slide img {
+  max-width: 190px;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 28px;
+}
+
+.tech-slide h3 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  color: #222;
+}
+
+.tech-slide p {
+  margin: 0;
+  max-width: 460px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #5f5a54;
+}
+
+.tech-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  z-index: 5;
+}
+
+.tech-arrow:hover {
+  background: #ffffff;
+  color: #174c43;
+}
+
+.tech-prev {
+  left: 22px;
+}
+
+.tech-next {
+  right: 22px;
+}
+
+.tech-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tech-categories span {
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #174c43;
+}
+
+.tech-learning {
+  margin-top: 16px;
+  padding: 22px 26px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.tech-learning span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #174c43;
+}
+
+.tech-learning h3 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  color: var(--charcoal);
+}
+
+.tech-learning p {
+  margin: 0;
+  max-width: 720px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #5f5a54;
+}
+
+@keyframes techFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* =========================
    TESTIMONIALS
 ========================= */

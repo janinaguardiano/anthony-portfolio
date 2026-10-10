@@ -985,7 +985,7 @@ body {
   margin-top: 16px;
 }
 
-.tech-categories span {
+.tech-filter {
   padding: 8px 14px;
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid var(--border);
@@ -994,6 +994,20 @@ body {
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #174c43;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.25s ease;
+}
+
+.tech-filter:hover {
+  background: #eef3f0;
+  border-color: #174c43;
+}
+
+.tech-filter.active {
+  background: #174c43;
+  color: #ffffff;
+  border-color: #174c43;
 }
 
 .tech-learning {

@@ -715,6 +715,36 @@
       window.location.hash = targetId;
     });
   });
+  // TECH STACK CAROUSEL
+const techSlides = document.querySelectorAll('.tech-slide');
+const techPrev = document.querySelector('.tech-prev');
+const techNext = document.querySelector('.tech-next');
+
+let currentTech = 1;
+
+function showTechSlide(index) {
+  techSlides.forEach(slide => {
+    slide.classList.remove('active');
+  });
+
+  if (index < 0) {
+    currentTech = techSlides.length - 1;
+  } else if (index >= techSlides.length) {
+    currentTech = 0;
+  } else {
+    currentTech = index;
+  }
+
+  techSlides[currentTech].classList.add('active');
+}
+
+techPrev.addEventListener('click', () => {
+  showTechSlide(currentTech - 1);
+});
+
+techNext.addEventListener('click', () => {
+  showTechSlide(currentTech + 1);
+});
 </script>
 
 </body>

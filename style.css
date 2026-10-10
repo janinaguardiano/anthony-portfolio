@@ -912,12 +912,25 @@ body {
 }
 
 .tech-slide img {
-  max-width: 190px;
-  max-height: 70px;
-  width: auto;
-  height: auto;
+  width: 190px;
+  height: 72px;
   object-fit: contain;
   margin-bottom: 28px;
+}
+.tech-slide img[alt="ActiveCampaign"] {
+  transform: scale(1.55);
+}
+
+.tech-slide img[alt="Anthropic"] {
+  transform: scale(1.25);
+}
+
+.tech-slide img[alt="Google AI Studio"] {
+  transform: scale(1.2);
+}
+
+.tech-slide img[alt="Google Workspace"] {
+  transform: scale(1.2);
 }
 
 .tech-slide h3 {

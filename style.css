@@ -1056,11 +1056,12 @@ body {
 }
 
 .about-value-card {
-  background: #ffffff;
-  border: 1px solid #d8d2c7;
-  border-radius: 24px;
-  padding: 24px;
-  min-height: 220px;
+  background: #174c43;
+  border: 1px solid #174c43;
+  border-radius: 16px;
+  padding: 22px;
+  min-height: 150px;
+  transition: 0.25s ease;
 }
 
 .about-value-card span {
@@ -1069,22 +1070,21 @@ body {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: #174c43;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .about-value-card h3 {
   margin: 0 0 8px;
   font-size: 20px;
   line-height: 1.2;
-  color: #222;
+  color: #ffffff;
 }
 
 .about-value-card p {
   margin: 0;
   font-size: 14px;
   line-height: 1.55;
-  color: #222;
-  opacity: 0.78;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .about-value-card span {
@@ -1109,6 +1109,10 @@ body {
   line-height: 1.55;
   color: var(--charcoal);
   opacity: 0.78;
+}
+.about-value-card:hover {
+  background: #1d6257;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 900px) {

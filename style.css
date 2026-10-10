@@ -1188,3 +1188,16 @@ body {
     font-size: 36px;
   }
 }
+/* FORCE ABOUT CARD COLORS */
+.about-values .about-value-card span {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.about-values .about-value-card h3 {
+  color: #ffffff !important;
+}
+
+.about-values .about-value-card p {
+  color: rgba(255, 255, 255, 0.82) !important;
+  opacity: 1 !important;
+}

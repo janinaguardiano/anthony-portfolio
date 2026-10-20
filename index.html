@@ -985,7 +985,7 @@
 
           <p>Usually replies within one business day.</p>
         </div>
-
+<p class="contact-form-status" role="status" aria-live="polite"></p>
       </form>
 
     </div>
@@ -1134,6 +1134,53 @@ faqItems.forEach(item => {
     }
   });
 });
+  // CONTACT FORM SUBMISSION
+const contactForm = document.querySelector('.contact-form');
+const contactFormStatus = document.querySelector('.contact-form-status');
+const contactSubmitButton = document.querySelector('.contact-submit');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    contactSubmitButton.disabled = true;
+    contactSubmitButton.textContent = 'Sending...';
+
+    contactFormStatus.textContent = '';
+    contactFormStatus.classList.remove('success', 'error');
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        contactFormStatus.textContent =
+          'Message sent successfully! Thanks for reaching out. I’ll get back to you soon.';
+        contactFormStatus.classList.add('success');
+
+        contactForm.reset();
+      } else {
+        contactFormStatus.textContent =
+          'Something went wrong. Please try again or reach out directly by email.';
+        contactFormStatus.classList.add('error');
+      }
+    } catch (error) {
+      contactFormStatus.textContent =
+        'Something went wrong. Please try again or reach out directly by email.';
+      contactFormStatus.classList.add('error');
+    }
+
+    contactSubmitButton.disabled = false;
+    contactSubmitButton.textContent = 'Send Message →';
+  });
+}
 </script>
 
 </body>

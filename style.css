@@ -1730,3 +1730,31 @@ body {
 .contact-form-footer {
   margin-top: auto;
 }
+/* CONTACT FORM STATUS */
+.contact-form-status {
+  display: none;
+  margin: 4px 0 0;
+  padding: 12px 15px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.contact-form-status.success {
+  display: block;
+  background: rgba(23, 76, 67, 0.08);
+  color: #174c43;
+  border: 1px solid rgba(23, 76, 67, 0.18);
+}
+
+.contact-form-status.error {
+  display: block;
+  background: #fff4f2;
+  color: #8b3028;
+  border: 1px solid #ecd0cc;
+}
+
+.contact-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}

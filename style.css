@@ -1414,6 +1414,22 @@ body {
     font-size: 36px;
   }
 }
+/* MOBILE HOME DASHBOARD */
+.home-dashboard {
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+  gap: 12px;
+}
+
+.dashboard-card,
+.dashboard-card-large,
+.dashboard-card-wide {
+  grid-column: auto;
+  min-height: 135px;
+  height: auto;
+  overflow: visible;
+}
+
 /* FORCE ABOUT CARD COLORS */
 .about-values .about-value-card span {
   color: rgba(255, 255, 255, 0.72) !important;

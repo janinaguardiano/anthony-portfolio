@@ -930,7 +930,11 @@
     <!-- RIGHT: CONTACT FORM -->
     <div class="contact-form-wrap">
 
-      <form class="contact-form">
+     <form
+  class="contact-form"
+  action="https://formspree.io/f/meaebaqa"
+  method="POST"
+>
 
         <div class="contact-field">
           <label for="contact-name">YOUR NAME</label>
@@ -939,6 +943,7 @@
             id="contact-name"
             name="name"
             placeholder="Your name"
+            required
           >
         </div>
 
@@ -949,6 +954,7 @@
             id="contact-email"
             name="email"
             placeholder="you@company.com"
+            required
           >
         </div>
 
@@ -968,11 +974,12 @@
             id="contact-message"
             name="message"
             placeholder="Tell me about the role, project, or support you’re looking for."
+            required
           ></textarea>
         </div>
 
         <div class="contact-form-footer">
-          <button class="contact-submit" type="button">
+          <button class="contact-submit" type="submit">
             Send Message →
           </button>
 

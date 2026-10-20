@@ -1410,10 +1410,10 @@ body {
     gap: 10px;
   }
 
-  .section-heading h2 {
-    font-size: 36px;
-  }
+ .section-heading h2 {
+  font-size: 36px;
 }
+
 /* MOBILE HOME DASHBOARD */
 .home-dashboard {
   grid-template-columns: 1fr;
@@ -1428,6 +1428,8 @@ body {
   min-height: 135px;
   height: auto;
   overflow: visible;
+}
+
 }
 
 /* FORCE ABOUT CARD COLORS */

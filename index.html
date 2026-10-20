@@ -1243,6 +1243,25 @@ if (mobileMenuToggle && sidebarNav) {
     });
   });
 }
+  // CONNECTED GROWTH CURSOR MOTION
+const mainContent = document.querySelector('.main-content');
+
+if (mainContent) {
+  mainContent.addEventListener('mousemove', (event) => {
+    const rect = mainContent.getBoundingClientRect();
+
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    mainContent.style.setProperty('--flow-x', `${x}%`);
+    mainContent.style.setProperty('--flow-y', `${y}%`);
+  });
+
+  mainContent.addEventListener('mouseleave', () => {
+    mainContent.style.setProperty('--flow-x', '72%');
+    mainContent.style.setProperty('--flow-y', '26%');
+  });
+}
 </script>
 
 </body>

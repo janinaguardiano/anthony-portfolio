@@ -1000,7 +1000,9 @@
   </div>
 <script>
   const navLinks = document.querySelectorAll('.sidebar-nav a');
-  const viewLinks = document.querySelectorAll('.sidebar-nav a, .dashboard-card');
+const viewLinks = document.querySelectorAll(
+  '.sidebar-nav a, .dashboard-card, .hero-buttons a'
+);
   const pageViews = document.querySelectorAll('.page-view');
 
   viewLinks.forEach(link => {

@@ -1429,7 +1429,18 @@ body {
   height: auto;
   overflow: visible;
 }
+/* MOBILE SERVICES */
+.services-grid {
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+  gap: 12px;
+}
 
+.service-card {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}
 }
 
 /* FORCE ABOUT CARD COLORS */

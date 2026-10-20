@@ -2069,3 +2069,21 @@ body {
 
   will-change: left, top;
 }
+@media (max-width: 950px) {
+  .flow-network {
+    animation-duration: 28s;
+  }
+
+  .flow-glow {
+    left: 70%;
+    top: 18%;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-network,
+  .flow-network circle {
+    animation: none;
+  }
+}

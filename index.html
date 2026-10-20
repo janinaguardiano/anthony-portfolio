@@ -1187,6 +1187,32 @@ if (contactForm) {
     contactSubmitButton.textContent = 'Send Message →';
   });
 }
+  // MOBILE NAVIGATION
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+const sidebarNav = document.querySelector('.sidebar-nav');
+
+if (mobileMenuToggle && sidebarNav) {
+  mobileMenuToggle.addEventListener('click', () => {
+    sidebarNav.classList.toggle('mobile-open');
+
+    if (sidebarNav.classList.contains('mobile-open')) {
+      mobileMenuIcon.textContent = '✕';
+      mobileMenuToggle.setAttribute('aria-label', 'Close navigation');
+    } else {
+      mobileMenuIcon.textContent = '☰';
+      mobileMenuToggle.setAttribute('aria-label', 'Open navigation');
+    }
+  });
+
+  sidebarNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      sidebarNav.classList.remove('mobile-open');
+      mobileMenuIcon.textContent = '☰';
+      mobileMenuToggle.setAttribute('aria-label', 'Open navigation');
+    });
+  });
+}
 </script>
 
 </body>

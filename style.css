@@ -2225,6 +2225,6 @@ body {
 /* FIX FEATURED RECOGNITION WIDTH */
 .recognition-section .featured-recognition {
   grid-column: 1 / -1;
-  width: 100%;
+  width: 100% !important;
   box-sizing: border-box;
 }

@@ -2222,3 +2222,9 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* FIX FEATURED RECOGNITION WIDTH */
+.recognition-section .featured-recognition {
+  grid-column: 1 / -1;
+  width: 100%;
+  box-sizing: border-box;
+}

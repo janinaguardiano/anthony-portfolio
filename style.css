@@ -1124,6 +1124,11 @@ body {
   align-items: start;
 }
 
+/* Featured Gushwork result spans full recognition panel */
+.recognition-card > .featured-recognition {
+  grid-column: 1 / -1;
+}
+
 .recognition-heading span {
   display: block;
   margin-bottom: 10px;
@@ -2221,10 +2226,4 @@ body {
   .featured-results {
     grid-template-columns: 1fr;
   }
-}
-/* FIX FEATURED RECOGNITION WIDTH */
-.recognition-section .featured-recognition {
-  grid-column: 1 / -1;
-  width: 100% !important;
-  box-sizing: border-box;
 }

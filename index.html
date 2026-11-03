@@ -1528,6 +1528,38 @@ if (proofStrip && 'IntersectionObserver' in window) {
 
   proofObserver.observe(proofStrip);
 }
+    // GUSHWORK PROOF LIGHTBOX
+const proofBox = document.querySelector('.featured-recognition-proof');
+const proofImage = proofBox ? proofBox.querySelector('img') : null;
+
+if (proofBox && proofImage) {
+  const lightbox = document.createElement('div');
+  lightbox.className = 'proof-lightbox';
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-label', 'Enlarged LinkedIn recognition');
+  lightbox.innerHTML = `
+    <button type="button" class="proof-lightbox-close" aria-label="Close">✕</button>
+    <img src="${proofImage.getAttribute('src')}" alt="${proofImage.getAttribute('alt')}">
+  `;
+  document.body.appendChild(lightbox);
+
+  const openLightbox = () => {
+    lightbox.classList.add('open');
+    document.body.classList.add('lightbox-open');
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    document.body.classList.remove('lightbox-open');
+  };
+
+  proofBox.addEventListener('click', openLightbox);
+  lightbox.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeLightbox();
+  });
+}
 </script>
 
 </body>

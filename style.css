@@ -3683,3 +3683,483 @@ body.lightbox-open {
     opacity: 0;
   }
 }
+
+/* =========================================================
+   NIGHT MODE
+   Deep forest night + cream text + soft sage accents.
+   Everything is scoped to html[data-theme="dark"],
+   so light mode is untouched.
+========================================================= */
+
+html[data-theme="dark"] {
+  --n-bg: #0f1714;
+  --n-sidebar: #121c19;
+  --n-surface: #17221e;
+  --n-surface-2: #1c2925;
+  --n-input: #111a17;
+  --n-text: #ece6db;
+  --n-muted: #b3ab9f;
+  --n-soft: #8f887d;
+  --n-accent: #8fc7b4;
+  --n-line: rgba(236, 230, 219, 0.11);
+  color-scheme: dark;
+}
+
+/* ---------- Theme toggle button (both modes) ---------- */
+
+.theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #d8d2c8;
+  background: rgba(255, 255, 255, 0.75);
+  color: #174c43;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:hover {
+  transform: rotate(-12deg) scale(1.05);
+}
+
+.theme-toggle i {
+  line-height: 1;
+  animation: themeIconIn 0.45s cubic-bezier(.2, .7, .2, 1);
+}
+
+@keyframes themeIconIn {
+  from { opacity: 0; transform: rotate(-90deg) scale(0.6); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 950px) {
+  .theme-toggle {
+    top: 50%;
+    right: 14px;
+    margin-top: -18px;
+  }
+
+  .profile-area {
+    padding-right: 44px;
+  }
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: var(--n-surface-2);
+  border-color: var(--n-line);
+  color: #f2d9a0;
+}
+
+/* Smooth cross-fade only while switching */
+html.theme-switching,
+html.theme-switching * {
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    fill 0.45s ease,
+    stroke 0.45s ease !important;
+}
+
+/* ---------- Page + sidebar ---------- */
+
+html[data-theme="dark"] body {
+  background: var(--n-bg);
+  color: var(--n-text);
+}
+
+html[data-theme="dark"] .sidebar {
+  background: var(--n-sidebar);
+  border-color: var(--n-line);
+}
+
+@media (max-width: 950px) {
+  html[data-theme="dark"] .sidebar {
+    background: rgba(15, 23, 20, 0.92);
+    border-bottom-color: var(--n-line);
+  }
+}
+
+html[data-theme="dark"] .profile-name,
+html[data-theme="dark"] .nav-item {
+  color: var(--n-text);
+}
+
+html[data-theme="dark"] .profile-title,
+html[data-theme="dark"] .sidebar-footer {
+  color: var(--n-muted);
+}
+
+@media (max-width: 950px) {
+  html[data-theme="dark"] .profile-placeholder {
+    background: var(--n-surface);
+    border-color: var(--n-line);
+  }
+}
+
+html[data-theme="dark"] .social-links a {
+  background: var(--n-surface);
+  border-color: var(--n-line);
+  color: var(--n-accent);
+}
+
+html[data-theme="dark"] .social-links a:hover {
+  background: #174c43;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .nav-item:hover {
+  background: var(--n-surface);
+}
+
+html[data-theme="dark"] .nav-item.active {
+  background: #174c43;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .sidebar-nav,
+html[data-theme="dark"] .sidebar-footer {
+  border-color: var(--n-line);
+}
+
+html[data-theme="dark"] .visit-pill {
+  background: var(--n-surface);
+  border-color: var(--n-line);
+  color: var(--n-muted);
+}
+
+html[data-theme="dark"] .visit-pill-dot,
+html[data-theme="dark"] .visit-pill-dot::after {
+  background: var(--n-accent);
+  border-color: var(--n-accent);
+}
+
+/* ---------- Shared type ---------- */
+
+html[data-theme="dark"] .hero-heading,
+html[data-theme="dark"] .section-heading h2,
+html[data-theme="dark"] .about-title h2,
+html[data-theme="dark"] .tech-learning h3,
+html[data-theme="dark"] .service-card h3,
+html[data-theme="dark"] .experience-card:not(.career-snapshot) h3,
+html[data-theme="dark"] .dashboard-card:not(.dashboard-card-large) h3,
+html[data-theme="dark"] .featured-recognition h3,
+html[data-theme="dark"] .testimonial-quote,
+html[data-theme="dark"] .about-copy p {
+  color: var(--n-text);
+}
+
+html[data-theme="dark"] .hero-heading span,
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] .section-eyebrow,
+html[data-theme="dark"] .card-label,
+html[data-theme="dark"] .card-link,
+html[data-theme="dark"] .experience-date,
+html[data-theme="dark"] .experience-card:not(.career-snapshot) h4,
+html[data-theme="dark"] .service-number,
+html[data-theme="dark"] .testimonial-number,
+html[data-theme="dark"] .testimonial-source,
+html[data-theme="dark"] .tech-learning span,
+html[data-theme="dark"] .featured-recognition-eyebrow,
+html[data-theme="dark"] .featured-result strong,
+html[data-theme="dark"] .proof-item strong,
+html[data-theme="dark"] .contact-form label,
+html[data-theme="dark"] .tech-counter {
+  color: var(--n-accent);
+}
+
+html[data-theme="dark"] .hero-description,
+html[data-theme="dark"] .section-heading p,
+html[data-theme="dark"] .dashboard-card:not(.dashboard-card-large) p,
+html[data-theme="dark"] .experience-card:not(.career-snapshot) p,
+html[data-theme="dark"] .experience-content h3 span,
+html[data-theme="dark"] .service-card p,
+html[data-theme="dark"] .tech-learning p,
+html[data-theme="dark"] .featured-recognition-description,
+html[data-theme="dark"] .featured-result span,
+html[data-theme="dark"] .contact-form-footer p,
+html[data-theme="dark"] .about-tony {
+  color: var(--n-muted);
+}
+
+html[data-theme="dark"] .proof-item span,
+html[data-theme="dark"] .featured-recognition-source,
+html[data-theme="dark"] .tech-counter small {
+  color: var(--n-soft);
+}
+
+/* ---------- Light cards become night surfaces ---------- */
+
+html[data-theme="dark"] .dashboard-card:not(.dashboard-card-large),
+html[data-theme="dark"] .experience-card:not(.career-snapshot),
+html[data-theme="dark"] .service-card,
+html[data-theme="dark"] .testimonial-card,
+html[data-theme="dark"] .tech-learning,
+html[data-theme="dark"] .featured-result,
+html[data-theme="dark"] .contact-quick-link {
+  background: var(--n-surface);
+  border-color: var(--n-line);
+}
+
+html[data-theme="dark"] .dashboard-card:not(.dashboard-card-large):hover,
+html[data-theme="dark"] .experience-card:not(.career-snapshot):hover,
+html[data-theme="dark"] .service-card:hover {
+  background: var(--n-surface-2);
+}
+
+/* Desktop Experience dashboard card stays a light-style card in light mode;
+   in night mode it matches the other surfaces */
+@media (min-width: 951px) {
+  html[data-theme="dark"] .dashboard-card-large {
+    background: var(--n-surface);
+    border-color: var(--n-line);
+  }
+
+  html[data-theme="dark"] .dashboard-card-large h3 {
+    color: var(--n-text);
+  }
+
+  html[data-theme="dark"] .dashboard-card-large p {
+    color: var(--n-muted);
+  }
+}
+
+html[data-theme="dark"] .featured-recognition,
+html[data-theme="dark"] .contact-panel {
+  background: var(--n-sidebar);
+  border-color: var(--n-line);
+}
+
+html[data-theme="dark"] .featured-recognition-quote {
+  background: rgba(143, 199, 180, 0.08);
+  color: var(--n-accent);
+}
+
+html[data-theme="dark"] .contact-form-wrap {
+  background: var(--n-surface);
+  border-color: var(--n-line);
+}
+
+html[data-theme="dark"] .contact-form input,
+html[data-theme="dark"] .contact-form textarea {
+  background: var(--n-input);
+  border-color: var(--n-line);
+  color: var(--n-text);
+}
+
+html[data-theme="dark"] .contact-form input::placeholder,
+html[data-theme="dark"] .contact-form textarea::placeholder {
+  color: var(--n-soft);
+}
+
+html[data-theme="dark"] .contact-quick-link strong {
+  color: var(--n-text);
+}
+
+html[data-theme="dark"] .contact-quick-link small {
+  color: var(--n-soft);
+}
+
+html[data-theme="dark"] .contact-quick-link:active {
+  background: var(--n-surface-2);
+}
+
+html[data-theme="dark"] .hero-proof,
+html[data-theme="dark"] .proof-item + .proof-item {
+  border-color: var(--n-line);
+}
+
+/* Tech filters */
+html[data-theme="dark"] .tech-filter:not(.active) {
+  background: var(--n-surface);
+  border-color: var(--n-line);
+  color: var(--n-accent);
+}
+
+/* Daily Drivers bar: same motion, logos shown in soft cream */
+html[data-theme="dark"] .tools-bar {
+  background: var(--n-surface);
+  border-color: var(--n-line);
+}
+
+html[data-theme="dark"] .tools-label span {
+  color: var(--n-soft);
+}
+
+html[data-theme="dark"] .tools-label strong {
+  color: var(--n-text);
+}
+
+html[data-theme="dark"] .tools-label {
+  border-color: var(--n-line);
+}
+
+html[data-theme="dark"] .tools-group img {
+  filter: brightness(0) invert(0.9) sepia(0.15);
+  opacity: 0.85;
+}
+
+/* ---------- Mobile pieces ---------- */
+
+html[data-theme="dark"] .mobile-bottom-nav,
+html[data-theme="dark"] .mobile-more-sheet {
+  background: var(--n-surface);
+  border-color: var(--n-line);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .mobile-nav-link {
+  color: var(--n-muted);
+}
+
+html[data-theme="dark"] .mobile-more-link {
+  color: var(--n-text);
+}
+
+html[data-theme="dark"] .mobile-more-link i,
+html[data-theme="dark"] .mobile-more-label {
+  color: var(--n-accent);
+}
+
+html[data-theme="dark"] .mobile-more-link.active,
+html[data-theme="dark"] .mobile-more-link.active i {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .home-dashboard .dashboard-card:not(.dashboard-card-large)::after {
+  background: rgba(143, 199, 180, 0.12);
+  color: var(--n-accent);
+}
+
+@media (max-width: 950px) {
+  html[data-theme="dark"] .main-content::after {
+    border-top-color: var(--n-line);
+    color: var(--n-soft);
+  }
+}
+
+/* Experience timeline */
+html[data-theme="dark"] .experience-list::before {
+  background: var(--n-line);
+}
+
+html[data-theme="dark"] .experience-list::after {
+  background: var(--n-accent);
+}
+
+html[data-theme="dark"] .experience-list .experience-card::before {
+  background: var(--n-bg);
+  border-color: rgba(236, 230, 219, 0.25);
+}
+
+html[data-theme="dark"] .experience-list .experience-card.in-view::before {
+  background: var(--n-accent);
+  border-color: var(--n-accent);
+  box-shadow: 0 0 0 5px rgba(143, 199, 180, 0.14);
+}
+
+/* ---------- Connected Growth background at night ---------- */
+
+html[data-theme="dark"] .flow-background::before {
+  background-image: radial-gradient(circle, rgba(143, 199, 180, 0.11) 1px, transparent 1.4px);
+}
+
+html[data-theme="dark"] .flow-network path {
+  stroke: rgba(143, 199, 180, 0.14);
+}
+
+html[data-theme="dark"] .flow-network circle {
+  fill: rgba(143, 199, 180, 0.32);
+}
+
+html[data-theme="dark"] .flow-network .flow-pulse {
+  stroke: var(--n-accent);
+  opacity: 0.7;
+  filter: drop-shadow(0 0 5px rgba(143, 199, 180, 0.6));
+}
+
+html[data-theme="dark"] .flow-glow {
+  background: radial-gradient(
+    circle,
+    rgba(143, 199, 180, 0.09) 0%,
+    rgba(143, 199, 180, 0.04) 34%,
+    transparent 70%
+  );
+}
+
+/* ---------- Intro at night ---------- */
+
+html[data-theme="dark"] .site-intro {
+  background-color: var(--n-bg);
+  background-image: radial-gradient(circle, rgba(143, 199, 180, 0.1) 1px, transparent 1.4px);
+}
+
+html[data-theme="dark"] .intro-node span {
+  background: var(--n-bg);
+  border-color: var(--n-accent);
+}
+
+html[data-theme="dark"] .intro-node small,
+html[data-theme="dark"] .intro-tagline em {
+  color: var(--n-accent);
+}
+
+html[data-theme="dark"] .intro-line {
+  background: var(--n-accent);
+}
+
+html[data-theme="dark"] .intro-tagline {
+  color: var(--n-text);
+}
+
+html[data-theme="dark"] .intro-node-1 span,
+html[data-theme="dark"] .intro-node-2 span,
+html[data-theme="dark"] .intro-node-3 span {
+  animation-name: introNodeFillNight;
+}
+
+@keyframes introNodeFillNight {
+  to {
+    background: var(--n-accent);
+    box-shadow: 0 0 0 6px rgba(143, 199, 180, 0.14);
+  }
+}
+
+/* ---------- Cursor at night ---------- */
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-theme="dark"] .cursor-dot {
+    background: var(--n-accent);
+  }
+
+  html[data-theme="dark"] .cursor-ring {
+    border-color: rgba(143, 199, 180, 0.55);
+  }
+
+  html[data-theme="dark"].cursor-hover .cursor-ring {
+    background: rgba(143, 199, 180, 0.1);
+    border-color: var(--n-accent);
+  }
+
+  html[data-theme="dark"].cursor-label .cursor-ring {
+    background: var(--n-accent);
+    border-color: var(--n-accent);
+  }
+
+  html[data-theme="dark"].cursor-label .cursor-ring-label {
+    color: var(--n-bg);
+  }
+
+  html[data-theme="dark"].cursor-on-dark .cursor-dot {
+    background: #f7f4ee;
+  }
+}

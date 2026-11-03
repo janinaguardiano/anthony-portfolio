@@ -2857,3 +2857,82 @@ body {
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.78);
 }
+
+/* =========================
+   GUSHWORK PROOF — tap to enlarge
+========================= */
+
+.featured-recognition-proof {
+  position: relative;
+  cursor: zoom-in;
+}
+
+.proof-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 16px 24px;
+  background: rgba(16, 46, 40, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  cursor: zoom-out;
+}
+
+.proof-lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.proof-lightbox img {
+  display: block;
+  max-width: min(100%, 900px);
+  max-height: 100%;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  transform: scale(0.94);
+  transition: transform 0.3s cubic-bezier(.2, .7, .2, 1);
+}
+
+.proof-lightbox.open img {
+  transform: scale(1);
+}
+
+.proof-lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #174c43;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+/* "Tap to enlarge" hint — phones only */
+@media (max-width: 950px) {
+  .featured-recognition-proof::after {
+    content: "⤢  Tap to enlarge";
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #174c43;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+  }
+}

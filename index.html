@@ -1738,6 +1738,68 @@ if (flowNetwork) {
     flowNetwork.appendChild(pulse);
   });
 }
+  // CUSTOM CURSOR (desktop only)
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const root = document.documentElement;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const cursorDot = document.createElement('div');
+  cursorDot.className = 'cursor-dot';
+
+  const cursorRing = document.createElement('div');
+  cursorRing.className = 'cursor-ring';
+  cursorRing.innerHTML = '<span class="cursor-ring-label"></span>';
+  const cursorLabel = cursorRing.querySelector('.cursor-ring-label');
+
+  document.body.append(cursorRing, cursorDot);
+  root.classList.add('has-custom-cursor');
+
+  let mouseX = -100, mouseY = -100, ringX = -100, ringY = -100;
+
+  document.addEventListener('mousemove', (event) => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    root.classList.add('cursor-visible');
+  });
+
+  (function followRing() {
+    const ease = reduceMotion ? 1 : 0.18;
+    ringX += (mouseX - ringX) * ease;
+    ringY += (mouseY - ringY) * ease;
+    cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+    requestAnimationFrame(followRing);
+  })();
+
+  const hoverTargets = 'a, button, .tech-filter, .faq-question, label, [role="button"]';
+  const labelTargets = [
+    ['.dashboard-card', 'View'],
+    ['.featured-recognition-proof', 'Zoom'],
+    ['.proof-lightbox', 'Close']
+  ];
+  const darkTargets = '.career-snapshot, .about-value-card, .recognition-card, .services-flexibility, ' +
+    '.tech-showcase, .contact-faq, .button.primary, .nav-item.active, .proof-lightbox';
+
+  document.addEventListener('mouseover', (event) => {
+    const target = event.target;
+    let label = '';
+
+    labelTargets.forEach(([selector, text]) => {
+      if (!label && target.closest(selector)) label = text;
+    });
+
+    cursorLabel.textContent = label;
+    root.classList.toggle('cursor-label', Boolean(label));
+    root.classList.toggle('cursor-hover', !label && Boolean(target.closest(hoverTargets)));
+    root.classList.toggle('cursor-on-dark', Boolean(target.closest(darkTargets)));
+    root.classList.toggle('cursor-text', Boolean(target.closest('input, textarea, select')));
+  });
+
+  document.addEventListener('mousedown', () => root.classList.add('cursor-down'));
+  document.addEventListener('mouseup', () => root.classList.remove('cursor-down'));
+  document.documentElement.addEventListener('mouseleave', () => root.classList.remove('cursor-visible'));
+}
+  
 </script>
 
 </body>

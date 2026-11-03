@@ -2745,3 +2745,67 @@ body {
     animation: fadeUp 0.6s 0.3s cubic-bezier(.2, .7, .2, 1) backwards;
   }
 }
+
+/* =========================
+   CONTACT QUICK ACTIONS (mobile)
+========================= */
+
+.contact-quick {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .contact-quick {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 18px 0 22px;
+  }
+
+  #contact.active .contact-quick {
+    animation: fadeUp 0.6s 0.15s cubic-bezier(.2, .7, .2, 1) backwards;
+  }
+
+  .contact-quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 6px 14px;
+    background: #ffffff;
+    border: 1px solid #e3ddd3;
+    border-radius: 16px;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease, background 0.2s ease;
+  }
+
+  .contact-quick-link:active {
+    transform: scale(0.96);
+    background: #f2eee7;
+  }
+
+  .contact-quick-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #174c43;
+    color: #ffffff;
+    font-size: 18px;
+  }
+
+  .contact-quick-link strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: #222222;
+  }
+
+  .contact-quick-link small {
+    margin-top: -4px;
+    font-size: 10.5px;
+    color: #7d776f;
+  }
+}

@@ -1393,6 +1393,61 @@ window.addEventListener('hashchange', () => {
 });
 
 syncMobileNav();
+    // MOBILE MOTION
+const isMobileView = () => window.matchMedia('(max-width: 950px)').matches;
+
+// Header shrinks on scroll
+const sidebarEl = document.querySelector('.sidebar');
+window.addEventListener('scroll', () => {
+  if (sidebarEl) sidebarEl.classList.toggle('is-scrolled', window.scrollY > 12);
+}, { passive: true });
+
+// Sliding pill in the bottom nav
+const navIndicator = document.querySelector('.mobile-nav-indicator');
+
+function moveNavIndicator() {
+  if (!navIndicator) return;
+  const activeLink = document.querySelector('.mobile-bottom-nav .mobile-nav-link.active');
+
+  if (!activeLink) {
+    navIndicator.style.opacity = '0';
+    return;
+  }
+
+  navIndicator.style.opacity = '1';
+  navIndicator.style.width = activeLink.offsetWidth + 'px';
+  navIndicator.style.transform = `translateX(${activeLink.offsetLeft}px)`;
+}
+
+window.addEventListener('hashchange', moveNavIndicator);
+window.addEventListener('resize', moveNavIndicator);
+window.addEventListener('load', moveNavIndicator);
+moveNavIndicator();
+
+// Cards fade up as they scroll into view
+if (isMobileView() && 'IntersectionObserver' in window) {
+  const revealTargets = document.querySelectorAll(
+    '.dashboard-card, .experience-card, .service-card, .testimonial-card, ' +
+    '.about-value-card, .recognition-card, .faq-item, .contact-form, .section-heading'
+  );
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+  revealTargets.forEach(el => {
+    const siblings = Array.from(el.parentElement.children);
+    const position = siblings.indexOf(el) % 4;
+    el.style.transitionDelay = (position * 70) + 'ms';
+    el.classList.add('reveal-item');
+    revealObserver.observe(el);
+  });
+}
 </script>
 
 </body>

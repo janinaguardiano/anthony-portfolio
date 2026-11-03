@@ -1560,6 +1560,29 @@ if (proofBox && proofImage) {
     if (event.key === 'Escape') closeLightbox();
   });
 }
+    // EXPERIENCE TIMELINE PROGRESS
+const timelineList = document.querySelector('.experience-list');
+
+function updateTimeline() {
+  if (!timelineList || !isMobileView()) return;
+  if (!document.querySelector('#experience.active')) return;
+
+  const rect = timelineList.getBoundingClientRect();
+  const trigger = window.innerHeight * 0.65;
+  let progress = Math.min(Math.max((trigger - rect.top) / rect.height, 0), 1);
+
+  // Reached the bottom of the page: finish the line
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+    progress = 1;
+  }
+
+  timelineList.style.setProperty('--timeline-progress', progress.toFixed(3));
+}
+
+window.addEventListener('scroll', updateTimeline, { passive: true });
+window.addEventListener('resize', updateTimeline);
+window.addEventListener('hashchange', () => setTimeout(updateTimeline, 60));
+updateTimeline();
 </script>
 
 </body>

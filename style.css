@@ -2936,3 +2936,84 @@ body.lightbox-open {
     pointer-events: none;
   }
 }
+
+/* =========================
+   EXPERIENCE TIMELINE (mobile)
+========================= */
+
+@media (max-width: 950px) {
+  .experience-list {
+    position: relative;
+    padding-left: 26px;
+  }
+
+  /* Faint track */
+  .experience-list::before,
+  .experience-list::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    border-radius: 2px;
+  }
+
+  .experience-list::before {
+    background: #e3ddd3;
+  }
+
+  /* Green line that grows as you scroll */
+  .experience-list::after {
+    background: #174c43;
+    transform-origin: top;
+    transform: scaleY(var(--timeline-progress, 0));
+    transition: transform 0.15s linear;
+  }
+
+  .experience-list .experience-card {
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Node dot for each role */
+  .experience-list .experience-card::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 18px;
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #f7f4ee;
+    border: 2px solid #c9c2b6;
+    transition:
+      background 0.4s ease 0.2s,
+      border-color 0.4s ease 0.2s,
+      box-shadow 0.4s ease 0.2s;
+  }
+
+  /* Dot lights up when the card scrolls in */
+  .experience-list .experience-card.in-view::before {
+    background: #174c43;
+    border-color: #174c43;
+    box-shadow: 0 0 0 5px rgba(23, 76, 67, 0.12);
+  }
+
+  /* Snapshot = end of the line */
+  .experience-list .career-snapshot::before {
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    left: -26px;
+    margin-top: -7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-list::after {
+    transform: none;
+    transition: none;
+  }
+}

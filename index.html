@@ -1344,6 +1344,55 @@ if (mainContent) {
     mainContent.style.setProperty('--flow-y', '26%');
   });
 }
+    // MOBILE BOTTOM NAV
+const mobileNavLinks = document.querySelectorAll('.mobile-bottom-nav a');
+const mobileMoreButton = document.querySelector('.mobile-nav-more');
+const mobileMoreSheet = document.querySelector('.mobile-more-sheet');
+const morePages = ['#tech-stack-page', '#testimonials', '#about'];
+
+function syncMobileNav() {
+  const current = window.location.hash || '#home';
+
+  mobileNavLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === current);
+  });
+
+  document.querySelectorAll('.mobile-more-link').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === current);
+  });
+
+  if (mobileMoreButton) {
+    mobileMoreButton.classList.toggle('active', morePages.includes(current));
+  }
+}
+
+function closeMoreSheet() {
+  if (!mobileMoreSheet) return;
+  mobileMoreSheet.classList.remove('open');
+  mobileMoreButton.setAttribute('aria-expanded', 'false');
+}
+
+if (mobileMoreButton && mobileMoreSheet) {
+  mobileMoreButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = mobileMoreSheet.classList.toggle('open');
+    mobileMoreButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  mobileMoreSheet.addEventListener('click', (event) => event.stopPropagation());
+  document.addEventListener('click', closeMoreSheet);
+}
+
+window.addEventListener('hashchange', () => {
+  syncMobileNav();
+  closeMoreSheet();
+
+  if (window.innerWidth <= 950) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+syncMobileNav();
 </script>
 
 </body>

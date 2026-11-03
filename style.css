@@ -2809,3 +2809,51 @@ body {
     color: #7d776f;
   }
 }
+
+/* =========================
+   CAREER SNAPSHOT — green summary card
+   (sets it apart from the job cards)
+========================= */
+
+.experience-card.career-snapshot {
+  background: #174c43;
+  border-color: #174c43;
+  color: #ffffff;
+}
+
+.experience-card.career-snapshot:hover {
+  background: #1d6257;
+}
+
+.career-snapshot .experience-date {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.career-snapshot .snapshot-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.career-snapshot .snapshot-stats div + div {
+  padding-left: 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.career-snapshot .snapshot-stats strong {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.career-snapshot .snapshot-stats span {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.78);
+}

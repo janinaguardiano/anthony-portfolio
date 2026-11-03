@@ -3275,3 +3275,66 @@ body.lightbox-open {
     padding-top: 14px;
   }
 }
+
+/* =========================
+   VISIT COUNTER (hidden until threshold)
+========================= */
+
+.visit-pill[hidden] {
+  display: none !important;
+}
+
+.visit-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #e3ddd3;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #625d56;
+  font-variant-numeric: tabular-nums;
+}
+
+.visit-pill-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #174c43;
+}
+
+.visit-pill-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid #174c43;
+  opacity: 0;
+  animation: visitPulse 2.4s ease-out infinite;
+}
+
+@keyframes visitPulse {
+  0%   { transform: scale(0.6); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Phones: show the count in the footer line instead */
+@media (max-width: 950px) {
+  .sidebar .visit-pill {
+    display: none !important;
+  }
+
+  .main-content[data-visits]::after {
+    content: "© 2026 Anthony Nucup  ·  " attr(data-visits) " visits  ·  Build. Support. Grow.";
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visit-pill-dot::after {
+    animation: none;
+  }
+}

@@ -2669,3 +2669,29 @@ body {
     -webkit-tap-highlight-color: transparent;
   }
 }
+
+/* Mobile: Services "Need something else?" banner stacks */
+@media (max-width: 950px) {
+  .services-flexibility {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    min-height: auto;
+    padding: 24px 22px;
+    border-radius: 18px;
+  }
+
+  .services-flexibility > span {
+    font-size: 10.5px;
+    letter-spacing: 2.5px;
+  }
+
+  .services-flexibility h3 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .services-flexibility p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}

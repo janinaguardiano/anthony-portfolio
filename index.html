@@ -12,6 +12,49 @@
 </head>
 
 <body>
+  
+  <!-- CONNECTED GROWTH INTRO (plays once per visit) -->
+  <div class="site-intro" aria-hidden="true">
+    <div class="intro-flow">
+      <div class="intro-node intro-node-1"><span></span><small>Operations</small></div>
+      <div class="intro-line intro-line-1"></div>
+      <div class="intro-node intro-node-2"><span></span><small>Sales</small></div>
+      <div class="intro-line intro-line-2"></div>
+      <div class="intro-node intro-node-3"><span></span><small>Growth</small></div>
+    </div>
+    <p class="intro-tagline">Let’s keep it <em>moving.</em></p>
+  </div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var skip = false;
+      try {
+        skip = sessionStorage.getItem('an-intro-seen') === '1' ||
+               window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        sessionStorage.setItem('an-intro-seen', '1');
+      } catch (error) {}
+
+      if (skip) {
+        root.classList.add('intro-skip');
+        return;
+      }
+
+      root.classList.add('intro-playing');
+
+      setTimeout(function () {
+        root.classList.remove('intro-playing');
+        root.classList.add('intro-done');
+
+        // Replay the page's own entrance once the curtain lifts
+        var page = document.querySelector('.page-view.active');
+        if (page) {
+          page.classList.remove('active');
+          void page.offsetWidth;
+          page.classList.add('active');
+        }
+      }, 2300);
+    })();
+  </script>
 
   <div class="site-layout">
 

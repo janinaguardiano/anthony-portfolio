@@ -1638,7 +1638,63 @@ if (techShowcase && techPrev && techNext) {
 
   updateTechCounter();
 }
-  
+
+    // VISIT COUNTER (real visits, shown only after the threshold)
+const VISIT_THRESHOLD = 500;
+const VISIT_API = 'https://abacus.jasoncameron.dev';
+const VISIT_NAMESPACE = 'anthonynucup-portfolio';
+const VISIT_KEY = 'visits';
+
+(function trackVisits() {
+  let alreadyCounted = false;
+
+  try {
+    alreadyCounted = localStorage.getItem('an-visit-counted') === '1';
+  } catch (error) {}
+
+  // Each browser adds +1 once. Returning visitors only read the number.
+  const action = alreadyCounted ? 'get' : 'hit';
+
+  fetch(`${VISIT_API}/${action}/${VISIT_NAMESPACE}/${VISIT_KEY}`)
+    .then(response => (response.ok ? response.json() : null))
+    .then(data => {
+      if (!data || typeof data.value !== 'number') return;
+
+      if (!alreadyCounted) {
+        try { localStorage.setItem('an-visit-counted', '1'); } catch (error) {}
+      }
+
+      if (data.value < VISIT_THRESHOLD) return;
+
+      const formatted = data.value.toLocaleString('en-US');
+
+      const pill = document.querySelector('.visit-pill');
+      const pillCount = document.querySelector('.visit-pill-count');
+      if (pill && pillCount) {
+        pillCount.textContent = `${formatted} visits`;
+        pill.title = 'Visitors to this portfolio';
+        pill.hidden = false;
+      }
+
+      const main = document.querySelector('.main-content');
+      if (main) main.dataset.visits = formatted;
+    })
+    .catch(() => {});
+})();
+
+  // CONNECTED GROWTH PULSES
+const flowNetwork = document.querySelector('.flow-network');
+
+if (flowNetwork) {
+  flowNetwork.querySelectorAll('path').forEach((path, index) => {
+    const pulse = path.cloneNode();
+    pulse.setAttribute('class', 'flow-pulse');
+    pulse.setAttribute('pathLength', '100');
+    pulse.style.animationDuration = `${8 + index * 1.7}s`;
+    pulse.style.animationDelay = `${-index * 2.6}s`;
+    flowNetwork.appendChild(pulse);
+  });
+}
 </script>
 
 </body>

@@ -1463,6 +1463,52 @@ if (isMobileView() && 'IntersectionObserver' in window) {
     revealObserver.observe(el);
   });
 }
+    // PROOF STRIP COUNT-UP
+const proofStrip = document.querySelector('.hero-proof');
+
+function runCountUp() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  proofStrip.querySelectorAll('strong[data-count]').forEach(el => {
+    const target = Number(el.dataset.count);
+    const finalText = el.dataset.final;
+
+    if (reduceMotion) {
+      el.textContent = finalText;
+      return;
+    }
+
+    const duration = 1400;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased).toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = finalText;
+      }
+    }
+
+    requestAnimationFrame(tick);
+  });
+}
+
+if (proofStrip && 'IntersectionObserver' in window) {
+  const proofObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        runCountUp();
+        proofObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  proofObserver.observe(proofStrip);
+}
 </script>
 
 </body>

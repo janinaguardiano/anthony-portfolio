@@ -3404,3 +3404,146 @@ body.lightbox-open {
     display: none;
   }
 }
+
+/* =========================
+   CONNECTED GROWTH INTRO
+========================= */
+
+.site-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  background-color: #f7f4ee;
+  background-image: radial-gradient(circle, rgba(23, 76, 67, 0.12) 1px, transparent 1.4px);
+  background-size: 24px 24px;
+  animation: introExit 0.7s cubic-bezier(.7, 0, .2, 1) 1.65s forwards;
+}
+
+.intro-skip .site-intro,
+.intro-done .site-intro {
+  display: none;
+}
+
+.intro-playing body {
+  overflow: hidden;
+}
+
+/* Nodes + lines */
+.intro-flow {
+  display: flex;
+  align-items: flex-start;
+}
+
+.intro-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 92px;
+  opacity: 0;
+  animation: introNodeIn 0.4s ease forwards;
+}
+
+.intro-node span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #174c43;
+  background: #f7f4ee;
+  animation: introNodeFill 0.3s ease forwards;
+}
+
+.intro-node small {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #174c43;
+}
+
+.intro-line {
+  width: 64px;
+  height: 2px;
+  margin: 7px -30px 0;
+  border-radius: 2px;
+  background: #174c43;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: introLineDraw 0.35s ease-in-out forwards;
+}
+
+/* Timeline */
+.intro-node-1      { animation-delay: 0.1s; }
+.intro-node-1 span { animation-delay: 0.3s; }
+.intro-line-1      { animation-delay: 0.4s; }
+.intro-node-2      { animation-delay: 0.3s; }
+.intro-node-2 span { animation-delay: 0.72s; }
+.intro-line-2      { animation-delay: 0.8s; }
+.intro-node-3      { animation-delay: 0.5s; }
+.intro-node-3 span { animation-delay: 1.12s; }
+
+/* Tagline */
+.intro-tagline {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
+  color: #222222;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: introTagIn 0.5s ease 1.15s forwards;
+}
+
+.intro-tagline em {
+  color: #174c43;
+}
+
+@keyframes introNodeIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.9); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes introNodeFill {
+  to {
+    background: #174c43;
+    box-shadow: 0 0 0 6px rgba(23, 76, 67, 0.12);
+  }
+}
+
+@keyframes introLineDraw {
+  to { transform: scaleX(1); }
+}
+
+@keyframes introTagIn {
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes introExit {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-intro {
+    gap: 28px;
+  }
+
+  .intro-node {
+    width: 84px;
+  }
+
+  .intro-line {
+    width: 48px;
+    margin: 7px -24px 0;
+  }
+
+  .intro-tagline {
+    font-size: 26px;
+  }
+}

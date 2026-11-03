@@ -2657,3 +2657,15 @@ body {
     transition: none;
   }
 }
+
+/* Mobile: zoom header photo to head & shoulders */
+@media (max-width: 950px) {
+  .sidebar .profile-placeholder img {
+    transform: scale(1.9);
+    transform-origin: 49% 34%;
+  }
+
+  .mobile-nav-link {
+    -webkit-tap-highlight-color: transparent;
+  }
+}

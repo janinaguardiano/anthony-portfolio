@@ -2419,3 +2419,19 @@ body {
     color: #ffffff;
   }
 }
+
+/* Sliding pill behind the active bottom-nav button */
+@media (max-width: 950px) {
+  .mobile-nav-indicator {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 0;
+    width: 0;
+    border-radius: 14px;
+    background: #174c43;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+}

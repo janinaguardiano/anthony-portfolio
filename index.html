@@ -1583,6 +1583,55 @@ window.addEventListener('scroll', updateTimeline, { passive: true });
 window.addEventListener('resize', updateTimeline);
 window.addEventListener('hashchange', () => setTimeout(updateTimeline, 60));
 updateTimeline();
+    // TECH STACK SWIPE + COUNTER
+const techShowcase = document.querySelector('.tech-showcase');
+
+if (techShowcase && techPrev && techNext) {
+  // Counter under the carousel
+  const techCounter = document.createElement('div');
+  techCounter.className = 'tech-counter';
+  techShowcase.insertAdjacentElement('afterend', techCounter);
+
+  const updateTechCounter = () => {
+    const pad = (n) => String(n).padStart(2, '0');
+    techCounter.innerHTML =
+      `<span>${pad(currentTech + 1)} / ${pad(visibleTechSlides.length)}</span>` +
+      `<small>Swipe to explore →</small>`;
+  };
+
+  const markDirection = (direction) => {
+    techSlides.forEach(slide => slide.classList.remove('slide-from-right', 'slide-from-left'));
+    const active = document.querySelector('.tech-slide.active');
+    if (active) active.classList.add(direction);
+  };
+
+  techPrev.addEventListener('click', () => { markDirection('slide-from-left'); updateTechCounter(); });
+  techNext.addEventListener('click', () => { markDirection('slide-from-right'); updateTechCounter(); });
+  techFilters.forEach(button => button.addEventListener('click', () => {
+    updateTechCounter();
+    button.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }));
+
+  // Swipe left / right
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  techShowcase.addEventListener('touchstart', (event) => {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+  }, { passive: true });
+
+  techShowcase.addEventListener('touchend', (event) => {
+    const dx = event.changedTouches[0].clientX - touchStartX;
+    const dy = event.changedTouches[0].clientY - touchStartY;
+
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      (dx < 0 ? techNext : techPrev).click();
+    }
+  }, { passive: true });
+
+  updateTechCounter();
+}
 </script>
 
 </body>

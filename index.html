@@ -1811,6 +1811,37 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   document.documentElement.addEventListener('mouseleave', () => root.classList.remove('cursor-visible'));
 }
   
+  // NIGHT MODE TOGGLE
+(function setupThemeToggle() {
+  const root = document.documentElement;
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'theme-toggle';
+  sidebar.appendChild(toggle);
+
+  const render = () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    toggle.innerHTML = isDark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
+    toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to night mode');
+    toggle.title = isDark ? 'Light mode' : 'Night mode';
+  };
+
+  toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+
+    root.classList.add('theme-switching');
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('an-theme', next); } catch (error) {}
+    render();
+
+    setTimeout(() => root.classList.remove('theme-switching'), 500);
+  });
+
+  render();
+})();
 </script>
 
 </body>

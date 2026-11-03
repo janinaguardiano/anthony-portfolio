@@ -2435,3 +2435,225 @@ body {
     z-index: 0;
   }
 }
+
+/* =========================
+   MOBILE DESIGN + MOTION
+========================= */
+
+@media (max-width: 950px) {
+
+  /* --- Hero: sized for phones --- */
+  .hero {
+    padding: 26px 6px 8px;
+  }
+
+  .hero .eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 2.5px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .hero-heading {
+    position: relative;
+    font-size: 42px;
+    line-height: 1.02;
+    letter-spacing: -1.5px;
+    margin-bottom: 30px;
+  }
+
+  .hero-heading span {
+    letter-spacing: -1px;
+    color: #174c43;
+  }
+
+  /* Thin green editorial rule under the heading */
+  .hero-heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -14px;
+    width: 64px;
+    height: 3px;
+    border-radius: 3px;
+    background: #174c43;
+    transform-origin: left;
+    animation: ruleDraw 0.7s 0.65s cubic-bezier(.2, .7, .2, 1) backwards;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #625d56;
+    margin-bottom: 24px;
+  }
+
+  .hero-buttons .button.primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* --- Hero entrance (staggered) --- */
+  #home.active .eyebrow,
+  #home.active .hero-heading,
+  #home.active .hero-description,
+  #home.active .hero-buttons,
+  #home.active .tools-bar {
+    animation: fadeUp 0.6s cubic-bezier(.2, .7, .2, 1) backwards;
+  }
+
+  #home.active .hero-heading     { animation-delay: 0.08s; }
+  #home.active .hero-description { animation-delay: 0.18s; }
+  #home.active .hero-buttons     { animation-delay: 0.26s; }
+  #home.active .tools-bar        { animation-delay: 0.34s; }
+
+  /* --- Page switch transition --- */
+  .page-view.active {
+    animation: pageIn 0.45s cubic-bezier(.2, .7, .2, 1) backwards;
+  }
+
+  /* --- Scroll reveal for cards --- */
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s cubic-bezier(.2, .7, .2, 1);
+  }
+
+  .reveal-item.in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* --- Tap feedback --- */
+  .dashboard-card,
+  .service-card,
+  .experience-card,
+  .testimonial-card,
+  .about-value-card,
+  .button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dashboard-card:active,
+  .service-card:active,
+  .experience-card:active,
+  .testimonial-card:active,
+  .about-value-card:active,
+  .button:active {
+    transform: scale(0.98);
+    transition: transform 0.12s ease;
+  }
+
+  /* --- Header shrinks + lifts on scroll --- */
+  .sidebar {
+    transition: padding 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .profile-placeholder {
+    transition: width 0.25s ease, height 0.25s ease;
+  }
+
+  .sidebar.is-scrolled {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-shadow: 0 6px 20px rgba(23, 76, 67, 0.07);
+  }
+
+  .sidebar.is-scrolled .profile-placeholder {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* --- Bottom nav: entrance + sliding pill --- */
+  .mobile-bottom-nav {
+    animation: navIn 0.6s 0.3s cubic-bezier(.2, .7, .2, 1) backwards;
+  }
+
+  .mobile-nav-indicator {
+    transition:
+      transform 0.4s cubic-bezier(.3, .8, .25, 1),
+      width 0.4s cubic-bezier(.3, .8, .25, 1),
+      opacity 0.2s ease;
+  }
+
+  .mobile-nav-link {
+    position: relative;
+    z-index: 1;
+  }
+
+  .mobile-bottom-nav .mobile-nav-link.active {
+    background: transparent;
+    color: #ffffff;
+  }
+
+  .mobile-nav-link i {
+    transition: transform 0.3s cubic-bezier(.3, .8, .25, 1);
+  }
+
+  .mobile-nav-link.active i {
+    transform: translateY(-1px) scale(1.08);
+  }
+
+  /* --- More sheet: items cascade in --- */
+  .mobile-more-sheet.open .mobile-more-link {
+    animation: fadeUp 0.35s cubic-bezier(.2, .7, .2, 1) backwards;
+  }
+
+  .mobile-more-sheet.open .mobile-more-link:nth-of-type(2) { animation-delay: 0.05s; }
+  .mobile-more-sheet.open .mobile-more-link:nth-of-type(3) { animation-delay: 0.10s; }
+
+  /* --- Connected Growth glow drifts slowly on phones --- */
+  .flow-glow {
+    animation: glowDrift 16s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes navIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes ruleDraw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes glowDrift {
+  0%   { left: 70%; top: 18%; }
+  50%  { left: 35%; top: 34%; }
+  100% { left: 62%; top: 58%; }
+}
+
+/* Respect "reduce motion" phone settings */
+@media (prefers-reduced-motion: reduce) {
+  .page-view.active,
+  #home.active .eyebrow,
+  #home.active .hero-heading,
+  #home.active .hero-description,
+  #home.active .hero-buttons,
+  #home.active .tools-bar,
+  .hero-heading::after,
+  .mobile-bottom-nav,
+  .mobile-more-link,
+  .flow-glow {
+    animation: none !important;
+  }
+
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
